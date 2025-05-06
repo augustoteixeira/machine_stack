@@ -1,0 +1,7 @@
+[package]
+name = "machine_stack"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cartesi-machine = { git = "https://github.com/cartesi/dave", features = ["download_uarch"] }
