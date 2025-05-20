@@ -9,12 +9,12 @@ use cartesi_machine::types::cmio::{
 };
 use cartesi_machine::Machine;
 
-const TEST_GIO: &str = r#"echo '{ "domain": 16,
-                          "id": "'$(echo -n Hi from inside! \
-                                     | hex --encode)'"}' \
-                    | rollup gio | grep -Eo '0x[0-9a-f]+' | tr -d '\n' \
-                    | hex --decode; echo
-                 "#;
+const TEST_GIO: &str =
+    r#"echo '{ "domain": 16,
+               "id": "'$(echo -n Hi from inside! | hex --encode)'"}' \
+       | rollup gio | grep -Eo '0x[0-9a-f]+' | tr -d '\n' \
+       | hex --decode; echo
+    "#;
 
 const TEST_HELLO: &str = r#"rullup"#;
 
@@ -24,7 +24,7 @@ fn main() {
         image_filename: "linux.bin".into(),
     })
     .dtb(DTBConfig {
-        entrypoint: "./test-cross; yield manual rx-accepted".to_string(),
+        entrypoint: "./test-cross; rollup accept".to_string(),
         ..Default::default()
     })
     .add_flash_drive(MemoryRangeConfig {
