@@ -25,6 +25,7 @@ fn main() {
     })
     .dtb(DTBConfig {
         entrypoint: "./test-cross; rollup accept".to_string(),
+        // entrypoint: TEST_GIO.to_string(),
         ..Default::default()
     })
     .add_flash_drive(MemoryRangeConfig {
